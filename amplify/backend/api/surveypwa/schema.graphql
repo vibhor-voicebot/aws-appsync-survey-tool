@@ -60,10 +60,7 @@ enum QuestionType {
 
 type Responses
   @model (subscriptions: { level: off })
-  @auth (rules: [
-    {allow: groups, groups: ["SurveyAdmins", "Users"]},
-    {allow: groups, groupsField: "groups", operations: [create, read]}
-    ])
+  @auth(rules: [{allow: owner}])
 {
     id: ID!
     qu: Question! @connection
@@ -73,10 +70,7 @@ type Responses
 
 type SurveyEntries
   @model (subscriptions: { level: off })
-  @auth (rules: [
-    {allow: groups, groups: ["SurveyAdmins", "Users"]},
-    {allow: groups, groupsField: "groups", operations: [create, read]}
-    ])
+  @auth(rules: [{allow: owner}])
 {
     id: ID!
     responses: [Responses] @connection(name: "SurveyEntryResponses")
