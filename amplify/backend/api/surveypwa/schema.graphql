@@ -2,7 +2,7 @@ type Survey
   @model (subscriptions: { level: off })
   @auth (rules: [
     {allow: groups, groups: ["SurveyAdmins", "Users"]},
-    {allow: groups, groupsField: "groups", operations: [create, update, read]}
+    {allow: groups, groupsField: "groups", operations: [create, read]}
     ])
 {
   id: ID!
@@ -20,7 +20,7 @@ type Questionnaire
   @model (subscriptions: { level: off })
   @auth (rules: [
     {allow: groups, groups: ["SurveyAdmins", "Users"]},
-    {allow: groups, groupsField: "groups", operations: [create, update, read]}
+    {allow: groups, groupsField: "groups", operations: [create, read]}
     ])
 {
   id: ID!
@@ -40,7 +40,7 @@ type Question
   @model (subscriptions: { level: off })
   @auth (rules: [
     {allow: groups, groups: ["SurveyAdmins", "Users"]},
-    {allow: groups, groupsField: "groups", operations: [create, update, read]}
+    {allow: groups, groupsField: "groups", operations: [create, read]}
     ])
 {
     id: ID!
@@ -62,8 +62,7 @@ type Responses
   @model (subscriptions: { level: off })
   @auth (rules: [
     {allow: groups, groups: ["SurveyAdmins", "Users"]},
-    {allow: groups, groupsField: "groups", operations: [create, update, read]},
-    {allow: owner}
+    {allow: groups, groupsField: "groups", operations: [create, read]}
     ])
 {
     id: ID!
@@ -76,8 +75,7 @@ type SurveyEntries
   @model (subscriptions: { level: off })
   @auth (rules: [
     {allow: groups, groups: ["SurveyAdmins", "Users"]},
-    {allow: groups, groupsField: "groups", operations: [create, update, read]},
-    {allow: owner}
+    {allow: groups, groupsField: "groups", operations: [create, read]}
     ])
 {
     id: ID!
